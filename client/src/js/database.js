@@ -19,13 +19,13 @@ export const putDb = async (content) => {
 
   console.log('Update Database');
 
-  const noteDb = await openDB('jate', 1);
-  const tx = noteDb.transaction('jate', 'readwrite');
+  const jateDb = await openDB('jate', 1);
+  const tx = jateDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
   const request = store.put({ id: 1, value: content });
 
   const result = await request;
-  console.log('Text saved!', result);
+  console.log('Text saved!', result.value);
 };
 
 
@@ -34,14 +34,16 @@ export const putDb = async (content) => {
 export const getDb = async() =>{
   console.log("getting database info");
 
-  const noteDb = await openDB('jate', 1)
-  const tx = noteDb.transaction('jate', 'readwrite');
+  const jateDb = await openDB('jate', 1)
+  const tx = jateDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate')
   const request = store.get(1);
 
   const result = await request;
-  console.log("results: ", result);
-  return result;
+  result
+  ? console.log("Data retrieved: ", result)
+  : console.log("Data not found in database.")
+  return result?.value;
 }
 
 initdb();
