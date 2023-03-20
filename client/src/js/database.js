@@ -25,7 +25,7 @@ export const putDb = async (content) => {
   const request = store.put({ id: 1, value: content });
 
   const result = await request;
-  console.log('Text saved!', result.value);
+  console.log('Text saved!', result);
 };
 
 
