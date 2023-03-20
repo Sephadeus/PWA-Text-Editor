@@ -1,3 +1,5 @@
+![badge](https://img.shields.io/badge/javascript-65.2%25-yellow) ![badge](https://img.shields.io/badge/CSS-25.2%25-blue) ![badge](https://img.shields.io/badge/HTML-9.6%25-orange)
+
 # PWA-Text-Editor
 
 ## Description
